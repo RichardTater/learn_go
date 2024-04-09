@@ -1,0 +1,12 @@
+name: Call Python Unit Tests Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  execute-unit-tests:
+    uses: lgcypower/lgcy-workflows/.github/workflows/python311-unit-test.yml@main
+    secrets: inherit

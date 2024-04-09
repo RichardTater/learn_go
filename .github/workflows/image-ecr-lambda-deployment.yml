@@ -1,0 +1,18 @@
+name: Build Image and Deploy to ECR and Lambda
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  build-and-deploy:
+    uses: lgcypower/lgcy-workflows/.github/workflows/image-ecr-lambda-deployment.yml@main
+    with:
+      ecr_name: test-worker-cicd # replace placeholder value
+      lambda_names: 'test-worker-cicd,test-worker-cicd-2' # replace placeholder value(s)
+      python_version: 3.11
+    secrets: inherit
